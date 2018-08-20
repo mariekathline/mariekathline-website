@@ -1,0 +1,25 @@
+/* Include
+/*-----------------------------------------------*/
+/* Commun
+/*-----------------------------------------------*/
+* {
+  font-family: "Open Sans"; }
+
+.section#header {
+  background: #111;
+  width: 100%;
+  min-height: 100vh;
+  color: #FFF; }
+.section#gallery {
+  width: 100%;
+  min-height: 100vh;
+  margin: 2em 0; }
+  .section#gallery h2 {
+    color: #24CC89; }
+.section h2 {
+  font-size: 8em;
+  text-transform: lowercase;
+  letter-spacing: -15px;
+  text-shadow: -1px 1px 0.2em rgba(255, 255, 255, 0.4), 1px -1px 0.4em rgba(255, 255, 255, 0.4); }
+
+/*# sourceMappingURL=style.css.map */
