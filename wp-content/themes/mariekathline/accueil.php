@@ -11,56 +11,74 @@ while ( have_posts() ) {
     the_post();
 ?>
 
-<!-- 2.1 - Section01 : What -->
-<section class="section" id="gallery">
-    <div class="container">
-        <h2>Galerie&nbsp;__</h2>
-        <div class="row">
 
-        <?php
-        $args = (array(
-          'post_type'     => 'category',
-          'order' => 'ASC'
-        ));
 
-        $category_post = new WP_Query( $args );
-        while ( $category_post->have_posts() ) : $category_post->the_post();?>
+
+<!-- Portfolio Section -->
+<section class="page-section" id="gallery">
+
+    <div class="relative">
         
-        <div class="col-md-3 col-sm-3 mt-3">
-            <div class="card">
-                <img class="card-img-top" src="<?php the_field('category_image') ?>" alt="Accéder aux projets <?php the_field('category_title') ?>">
-                <div class="card-body">
-                    <h5 class="card-title"><?php the_field('category_title') ?></h5>
-                    <p class="card-text">
-                        <?php the_field('category_content') ?>
-                    </p>
-                    <a href="#" class="btn btn-primary">Voir plus</a>
-                </div>
-            </div>
-        </div>
+        <!-- Works Filter -->                    
+        <!--div class="works-filter font-alt align-center">
+            <a href="#" class="filter active" data-filter="*">Tous</a>
+            <a href="#photographie" class="filter" data-filter=".photographie">Photographie</a>
+            <a href="#print" class="filter" data-filter=".print">Print</a>
+            <a href="#web" class="filter" data-filter=".web">Web</a>
+            <a href="#video" class="filter" data-filter=".video">Vidéo</a>
 
-      <?php endwhile; wp_reset_query(); ?>
+        </div-->                    
+        <!-- End Works Filter -->
 
+        
+        
+        <!-- Works Grid -->
+        <ul class="works-grid clearfix font-alt hover-white hide-titles masonry" id="work-grid">
 
+            <?php
+            $args = (array(
+            'post_type'     => 'work',
+            'order' => 'DSC'
+            ));
+
+            $work_post = new WP_Query( $args );
+            while ( $work_post->have_posts() ) : $work_post->the_post();?>
+            
+            <!-- Work Item -->
+            <li class="work-item mix <?php the_field('work_category') ?>">
+                <a href="
+                <?php if( get_field('work_category') == 'video' ) : the_field('work_url_video')?>
+                <?php else : the_field('work_image')?>
+                <?php endif; ?>"
+                
+                class="work-lightbox-link 
+                    <?php if( get_field('work_category') == 'video' ) :?>mfp-iframe
+                    <?php else :?>mfp-image
+                    <?php endif; ?>
+                ">
+                    <div class="work-img">
+                        <img src="<?php the_field('work_image') ?>" alt="<?php the_field('work_title') ?>" />
+                    </div>
+                    <div class="work-intro">
+                        <h3 class="work-title"><?php the_field('work_title') ?></h3>
+                        <div class="work-descr">
+                            <?php the_field('work_content') ?>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- End Work Item -->
+
+            <?php endwhile; wp_reset_query(); ?>
+ 
+        </ul>
+        <!-- End Works Grid -->
+        
     </div>
-    <div class="cadres" id="cadre1"></div>
-    <div class="cadres" id="cadre2"></div>
 </section>
+<!-- End Portfolio Section -->
 
-<!-- 2.1 - Section02 : About -->
-<section class="section" id="about">
-    <div class="row">
-        <div class="col-md-6 col-md-push-2 col-sm-6 col-sm-push-1 col-xs-10 col-xs-push-1">
-        <h2>about&nbsp;__</h2>
-            <div class="row">
-            </div>
-        </div>
 
-        <div class="col-md-3 col-md-push-1 col-sm-4 col-sm-push-1 col-xs-12 center btn-title">
-            <a href="about.php" class="waves-effect waves-light btn-large"><i class="material-icons left">zoom_in</i>voir mon profil</a>
-        </div>
-    </div>
-</section>
 
 <?php } // end while
 } // end if

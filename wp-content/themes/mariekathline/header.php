@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/ionicons.min.css">
   </head>
@@ -31,28 +32,27 @@
           <span></span>
     </div>
 
-
-    <div class="burger-menu off">
-      <nav>
-        <?php wp_nav_menu(array(
+    <div id="st-container" class="st-container">
+			<!-- 	
+				example menus 
+				these menus will be on top of the push wrapper
+			-->
+		<nav class="st-menu st-effect-1" id="menu-1">
+				<h2 class="icon icon-lab">Marie-Kathline</h2>
+				<?php wp_nav_menu(array(
                 'theme_location' => 'mainmenu',
               )); ?>
         <a id="closeButton" href="#">Fermer</a>
       </nav>
-    </div>
+      
+      <!--button data-effect="st-effect-1">Slide in on top</button-->
 
-    <div class="global-filter off"></div>
-
-    <div class="burger-icon">
-          <span class="burger-line"></span>
-    </div>
-
-    <!-- 1.1 - Header -->
-		<header class="section d-flex justify-content-center align-items-center" id="header">
-			<div class="container">
-				<div class="col-md-12">
-          <h2>Marie-kathline&nbsp;__</h2>
-					<p>#graphisme #webdesign #webconception #developpement.front #identite.visuelle #ergonomie #illustrations #experience.utilisateur #UX #motion.design #animations #couleurs #print #digital #mise.en.page #typographie #photographie</p>
-				</div>
-			</div>
-		</header>
+      <!-- 1.1 - Header -->
+      <header class="section d-flex justify-content-center align-items-center" id="header">
+        <div class="container">
+          <div class="col-md-12">
+            <h2>Marie-kathline&nbsp;__</h2>
+            <p>#graphisme #webdesign #webconception #developpement.front #identite.visuelle #ergonomie #illustrations #experience.utilisateur #UX #motion.design #animations #couleurs #print #digital #mise.en.page #typographie #photographie</p>
+          </div>
+        </div>
+      </header>

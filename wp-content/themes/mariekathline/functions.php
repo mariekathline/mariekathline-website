@@ -79,21 +79,5 @@ function create_posttype() {
     )
   );
 
-  register_post_type( 'category',
-  array(
-    'labels' => array(
-      'name' => __( 'Rubriques' ),
-      'singular_name' => __( 'Rubrique' ),
-      'add_new_item' => 'Ajouter une rubrique',
-      'edit_item' => "Modifier la rubrique",
-      'menu_name' => 'Rubriques'
-    ),
-    'public' => true,
-    'has_archive' => true,
-    'rewrite' => array('slug' => 'category'),
-    'menu_position' => 2,
-    'menu_icon' => 'dashicons-schedule',
-  )
-);
 }
 add_action( 'init', 'create_posttype' );
