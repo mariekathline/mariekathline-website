@@ -52,7 +52,7 @@
         <div class="container">
           <div class="col-md-12">
             <h2>Marie-kathline&nbsp;__</h2>
-            <p>#graphisme #webdesign #webconception #developpement.front #identite.visuelle #ergonomie #illustrations #experience.utilisateur #UX #motion.design #animations #couleurs #print #digital #mise.en.page #typographie #photographie</p>
+            <!--p>#graphisme #webdesign #webconception #developpement.front #identite.visuelle #ergonomie #illustrations #experience.utilisateur #UX #motion.design #animations #couleurs #print #digital #mise.en.page #typographie #photographie</p-->
           </div>
         </div>
       </header>

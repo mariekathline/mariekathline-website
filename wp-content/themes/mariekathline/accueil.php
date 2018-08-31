@@ -33,7 +33,7 @@ while ( have_posts() ) {
         
         
         <!-- Works Grid -->
-        <ul class="works-grid clearfix font-alt hover-white hide-titles masonry" id="work-grid">
+        <ul class="works-grid clearfix hover-white hide-titles masonry" id="work-grid">
 
             <?php
             $args = (array(
@@ -41,24 +41,23 @@ while ( have_posts() ) {
             'order' => 'DSC'
             ));
 
+
             $work_post = new WP_Query( $args );
             while ( $work_post->have_posts() ) : $work_post->the_post();?>
             
-            <!-- Work Item -->
             <li class="work-item mix <?php the_field('work_category') ?>">
+
+            <?php if( get_field('work_type') == 'simple' ) :?>
+
                 <a href="
-                <?php if( get_field('work_category') == 'video' ) : the_field('work_url_video')?>
-                <?php else : the_field('work_image')?>
-                <?php endif; ?>"
-                
-                class="work-lightbox-link 
-                    <?php if( get_field('work_category') == 'video' ) :?>mfp-iframe
-                    <?php else :?>mfp-image
-                    <?php endif; ?>
-                ">
+                    <?php if( get_field('work_category') == 'video' ) : the_field('work_url_video')?><?php else : the_field('work_image')?><?php endif; ?>"                
+                    class="work-lightbox-link mfp-pop <?php if( get_field('work_category') == 'video' ) :?>mfp-iframe<?php else :?>mfp-image<?php endif; ?>"
+                    target="_blank">
+
                     <div class="work-img">
                         <img src="<?php the_field('work_image') ?>" alt="<?php the_field('work_title') ?>" />
                     </div>
+
                     <div class="work-intro">
                         <h3 class="work-title"><?php the_field('work_title') ?></h3>
                         <div class="work-descr">
@@ -66,9 +65,65 @@ while ( have_posts() ) {
                         </div>
                     </div>
                 </a>
-            </li>
-            <!-- End Work Item -->
 
+                <?php elseif ( get_field('work_type') == 'gallery' ) :?>
+
+                 <a data-links="<?php
+                 if( get_field('work_image_gallery_1') ):
+                    the_field('work_image_gallery_1');
+                 endif;
+                 if( get_field('work_image_gallery_2') ):
+                    echo ',';
+                    the_field('work_image_gallery_2');
+                 endif;
+                 if( get_field('work_image_gallery_3') ):
+                    echo ',';
+                    the_field('work_image_gallery_3');
+                 endif;
+                 if( get_field('work_image_gallery_4') ):
+                    echo ',';
+                    the_field('work_image_gallery_4');
+                 endif;
+                 if( get_field('work_image_gallery_5') ):
+                    echo ',';
+                    the_field('work_image_gallery_5');
+                 endif;
+                 if( get_field('work_image_gallery_6') ):
+                    echo ',';
+                    the_field('work_image_gallery_6');
+                 endif;
+                 if( get_field('work_image_gallery_7') ):
+                    echo ',';
+                    the_field('work_image_gallery_7');
+                 endif;
+                 if( get_field('work_image_gallery_8') ):
+                    echo ',';
+                    the_field('work_image_gallery_8');
+                 endif;
+                 if( get_field('work_image_gallery_9') ):
+                    echo ',';
+                    the_field('work_image_gallery_9');
+                 endif;
+                 if( get_field('work_image_gallery_10') ):
+                    echo ',';
+                    the_field('work_image_gallery_10');
+                 endif;
+                 ?>"
+                 class="btn-gallery">
+
+                    <div class="work-img">
+                        <img src="<?php the_field('work_image') ?>" alt="<?php the_field('work_title') ?>" />
+                    </div>
+
+                    <div class="work-intro">
+                        <h3 class="work-title"><?php the_field('work_title') ?></h3>
+                        <div class="work-descr">
+                            <?php the_field('work_content') ?>
+                        </div>
+                    </div>
+                </a>
+                <?php endif; ?>
+            </li>
             <?php endwhile; wp_reset_query(); ?>
  
         </ul>
@@ -78,6 +133,9 @@ while ( have_posts() ) {
 </section>
 <!-- End Portfolio Section -->
 
+<section id="instagram">
+    <ul id="mk_instafeed"></ul>
+</section>
 
 
 <?php } // end while
