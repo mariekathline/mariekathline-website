@@ -1,17 +1,8 @@
 <?php
 
-register_nav_menus( array(
-  'mainmenu'    => __( 'Menu Principal' ),
-) );
-
-register_sidebars(2, array('name'=>'Espace de widget %d'));
-
-add_theme_support( 'post-thumbnails' );
-
-
 
 function create_posttype() {
-  register_post_type( 'event',
+  /*register_post_type( 'event',
     array(
       'labels' => array(
         'name' => __( 'Parcours' ),
@@ -26,9 +17,9 @@ function create_posttype() {
       'menu_position' => 3,
       'menu_icon' => 'dashicons-exerpt-view',
     )
-  );
+  );*/
 
-  register_post_type( 'skills',
+  /*register_post_type( 'skills',
     array(
       'labels' => array(
         'name' => __( 'Compétences' ),
@@ -43,9 +34,9 @@ function create_posttype() {
       'menu_position' => 4,
       'menu_icon' => 'dashicons-universal-access',
     )
-  );
+  );*/
 
-  register_post_type( 'hobbies',
+  /*register_post_type( 'hobbies',
     array(
       'labels' => array(
         'name' => __( 'Loisirs' ),
@@ -60,24 +51,42 @@ function create_posttype() {
       'menu_position' => 5,
       'menu_icon' => 'dashicons-heart',
     )
-  );
+  );*/
 
-  register_post_type( 'work',
+  register_post_type( 'project',
     array(
       'labels' => array(
-        'name' => __( 'Travaux' ),
-        'singular_name' => __( 'Travail' ),
-        'add_new_item' => 'Ajouter un travail',
-        'edit_item' => "Modifier le travail",
-        'menu_name' => 'Travaux'
+        'name' => __( 'Projets' ),
+        'singular_name' => __( 'Projet' ),
+        'add_new_item' => 'Ajouter un projet',
+        'edit_item' => "Modifier le projet",
+        'menu_name' => 'Projets',
+        'new_item' => __('Nouveau projet'),
+        'all_items' => __('Tous les travaux'),
+        'view_item' => __('Voir le projet'),
+        'search_items' => __('Rechercher un projet'),
+        'not_found' =>  __('Aucun projet trouvé'),
+        'not_found_in_trash' => __('Aucun projet trouvé dans la corbeille'), 
+        'parent_item_colon' => '',
+
       ),
       'public' => true,
       'has_archive' => true,
-      'rewrite' => array('slug' => 'travaux'),
+      'rewrite' => array('slug' => 'projets'),
       'menu_position' => 2,
       'menu_icon' => 'dashicons-admin-customizer',
+      'taxonomies' => array('category'/*, 'post_tag'*/),
+      'supports' => array( 'title', 'thumbnail', 'permalink' )
     )
   );
 
 }
 add_action( 'init', 'create_posttype' );
+
+
+register_nav_menus( array(
+  'mainmenu'    => __( 'Menu Principal' ),
+) );
+
+register_sidebars(2, array('name'=>'Espace de widget %d'));
+add_theme_support( 'post-thumbnails' );

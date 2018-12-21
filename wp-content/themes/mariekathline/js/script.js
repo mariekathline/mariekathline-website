@@ -2,9 +2,27 @@ $(document).ready(function() {
   imagePopup();
   galleryPopup();
   init_masonry();
-  /*initWorkFilter();*/
   instagram_feed();
+  menu_trigger();
+  section_bg();
+  init_counters();
 });
+
+
+/* ---------------------------------------------
+ Sections backgrounds
+ --------------------------------------------- */  
+
+function section_bg(){
+  
+    var pageSection = $(".home-section, .page-section, .small-section, .split-section");
+    pageSection.each(function(indx){
+        
+        if ($(this).attr("data-background")){
+            $(this).css("background-image", "url(" + $(this).data("background") + ")");
+        }
+    });
+}
 
 /* ---------------------------------------------
  Image
@@ -119,7 +137,7 @@ function init_masonry(){
 
 function instagram_feed(){
   var token = '145174967.88e3497.1f1ba535d15d47b8b511970383c27456',
-  num_photos = 20;
+  num_photos = 10;
 
   $.ajax({
   url: 'https://api.instagram.com/v1/users/self/media/recent',
@@ -136,4 +154,35 @@ function instagram_feed(){
     console.log(data);
   }
   });
+}
+
+
+/* ---------------------------------------------
+ Menu
+ --------------------------------------------- */
+ function menu_trigger(){
+    $( "#burger" ).click(function() {
+        $(".menu").toggleClass("open");
+        $("#burger").toggleClass("open");
+    });
+}
+
+
+
+    
+/* ---------------------------------------------
+    Some facts section
+    --------------------------------------------- */
+
+    function init_counters(){
+    $(".count-number").appear(function(){
+        var count = $(this);
+        count.countTo({
+            from: 0,
+            to: count.html(),
+            speed: 1300,
+            refreshInterval: 60,
+        });
+        
+    });
 }

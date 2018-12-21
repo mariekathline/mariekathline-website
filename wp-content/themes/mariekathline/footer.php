@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/imagesloaded.pkgd.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 
 <script type="text/javascript">
@@ -20,7 +21,6 @@
 
 </script>
 
-</div><!-- /st-container -->
 
 </body>
 </html>
